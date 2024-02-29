@@ -5,7 +5,7 @@
   border-radius: 15px;
   background: #093cc9;
   padding: 20px; 
-  width: auto;
+  width: 110px;
   height: 10px;
 
 }
@@ -13,7 +13,7 @@
   border-radius: 15px;
   background: #093cc9;
   padding: 20px; 
-  width: auto;
+  width: 110px;
   height: 10px;  
 
 }
@@ -60,8 +60,18 @@ function Output()   {
     document.getElementById("cijfer1").value;
     var b =
     document.getElementById("cijfer2").value;
-    var c = Number(a) + Number(b);
-    document.getElementById("Output").innerHTML = c;
+    var c =
+    document.getElementById("op").value;
+    if (c == "+") {
+      var Output = Number(a) + Number(b);
+    } else if (c == "-") {
+     var Output = Number(a) - Number(b);
+    } else if (c == "*") {
+     var Output = Number(a) * Number(b);
+    } else if (c == "/") {
+      var Output = Number(a) / Number(b);
+    }
+    document.getElementById("Output").innerHTML = Output;
 }
     </script>
     <body>
@@ -71,6 +81,13 @@ function Output()   {
           <p><input type="number" id="cijfer1" name="cijfer1" placeholder="Bijvoorbeeld: 5">
             <input type="number" id="cijfer2" name="cijfer2" placeholder="Bijvoorbeeld: 10"><br>
             <input type="button" id="Bereken" value="Bereken" OnClick="Output()">
+            <label for="Operator">Operator</label>
+            <select name="operator" id="op">
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">×</option>
+              <option value="/">÷</option>
+            </select><br>
             Antwoord: <span id="Output"></span></p>
           </form>
         </div>
