@@ -52,9 +52,45 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+  
+#animationWindow {
+ width: 100%;
+ height: 100%;
+}
 
 </style>
     <script>
+      var select = function(s) {
+    return document.querySelector(s);
+  },
+  selectAll = function(s) {
+    return document.querySelectorAll(s);
+  }, 
+  animationWindow = select('#animationWindow'),    
+    animData = {
+    wrapper: animationWindow,
+    animType: 'svg',
+    loop: true,
+    prerender: true,
+    autoplay: true,
+    progressiveLoad: true,
+    path: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/play_fill_loader.json',
+  rendererSettings: {
+  
+  }   
+  }, anim;
+
+  anim = bodymovin.loadAnimation(animData);
+ anim.addEventListener('DOMLoaded', onDOMLoaded);
+ anim.setSpeed(1);
+
+function onDOMLoaded(e){
+ 
+ anim.addEventListener('complete', function(){});
+}
+
+ScrubBodymovinTimeline(anim)
+      
 function Output()   {
     var a =
     document.getElementById("cijfer1").value;
@@ -75,6 +111,8 @@ function Output()   {
 }
     </script>
     <body>
+      <div id="animationWindow">
+      </div>
       <div class="middle">
         <h1>Adder</h1>
         <form>
