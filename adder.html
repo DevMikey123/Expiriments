@@ -2,7 +2,7 @@
 <head>
 <style>
   #cijfer1 {
-  border-radius: 15px;
+  border-radius: 100px;
   background: #093cc9;
   padding: 20px; 
   width: 110px;
@@ -10,7 +10,7 @@
 
 }
 #cijfer2 {
-  border-radius: 15px;
+  border-radius: 100px;
   background: #093cc9;
   padding: 20px; 
   width: 110px;
@@ -18,7 +18,7 @@
 
 }
 #Bereken {
-  border-radius: 20px;
+  border-radius: 100px;
   background: #098cc9;
   padding: 20px; 
   width: 100%;
@@ -58,39 +58,18 @@ body {
  height: 100%;
 }
 
-</style>
-    <script>
-      var select = function(s) {
-    return document.querySelector(s);
-  },
-  selectAll = function(s) {
-    return document.querySelectorAll(s);
-  }, 
-  animationWindow = select('#animationWindow'),    
-    animData = {
-    wrapper: animationWindow,
-    animType: 'svg',
-    loop: true,
-    prerender: true,
-    autoplay: true,
-    progressiveLoad: true,
-    path: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/play_fill_loader.json',
-  rendererSettings: {
-  
-  }   
-  }, anim;
+.answer {
+  width: 300px;
+  height: 15px;
+  padding: 10px;
+  border: 5px solid rgb(0, 0, 0);
+  margin: auto;
+  border-radius: 100px;
 
-  anim = bodymovin.loadAnimation(animData);
- anim.addEventListener('DOMLoaded', onDOMLoaded);
- anim.setSpeed(1);
-
-function onDOMLoaded(e){
- 
- anim.addEventListener('complete', function(){});
 }
 
-ScrubBodymovinTimeline(anim)
-      
+</style>
+    <script>
 function Output()   {
     var a =
     document.getElementById("cijfer1").value;
@@ -126,7 +105,10 @@ function Output()   {
               <option value="*">×</option>
               <option value="/">÷</option>
             </select><br>
+          </div>
+            <div class="answer">
             Antwoord: <span id="Output"></span></p>
+          </div>
           </form>
         </div>
     </body>
